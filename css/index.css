@@ -336,3 +336,12 @@ footer {
         width: 180px;
     }
 }
+
+@media screen and (max-width: 800px) {
+    form {
+        display: none;
+    }
+    .header-baixo-botoes {
+        display: none;
+    }
+}
