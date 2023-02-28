@@ -13,87 +13,117 @@
 </head>
 <body>
     <!-- Início Header -->
-    <header>
-        <nav class="header-cima container">
-            <ul>
-                <img src="img/icons8-dente-64.png" alt="logo">
-                <form action="">
-                    <input type="search" name="pesquisa" id="pesquisa" placeholder="Pesquise aqui um produto....">
-                    <img src="img/icons8-pesquisar-50.png" alt="lupa" id="lupa">
-                </form>
-                <div class="botoes-cima">
-                    <a href="carrinho.html"><img src="/img/icons8-carrinho-de-compras-48.png" alt="carrinho"></a>
+ <!-- Início Header -->
+ <header>
+    <nav class="header-cima container">
+        <ul>
+            <img src="img/icons8-dente-64.png" alt="logo">
+            <form action="">
+                <input type="search" name="pesquisa" id="pesquisa" placeholder="Pesquise aqui um produto....">
+                <img src="img/icons8-pesquisar-50.png" alt="lupa" id="lupa">
+            </form>
+            <div class="botoes-cima">
+                <img src="/img/icons8-carrinho-de-compras-48.png" alt="carrinho">
+            </div>
+        </ul>
+    </nav>
+    <div class="header-baixo-bg">
+        <div class="header-baixo container">
+            <div class="header-baixo-conteudo">
+                <div class="design-barras-categorias">
+                    <span class="barras-brancas"></span>
+                    <span class="barras-brancas"></span>
+                    <span class="barras-brancas"></span>
                 </div>
-            </ul>
-        </nav>
-        <div class="header-baixo-bg">
-            <div class="header-baixo container">
-                <div class="header-baixo-conteudo">
-                    <div class="design-barras-categorias">
-                        <span class="barras-brancas"></span>
-                        <span class="barras-brancas"></span>
-                        <span class="barras-brancas"></span>
-                    </div>
-                    <div class="text-categorias">
-                        <p>Todas as Categorias</p>
-                    </div>
-                </div>
-                <div class="header-baixo-botoes container">
-                    <ul class="header-botoes">
-                        <li class="header-botoes-li">Equipamentos</li>
-                        <hr>
-                        <li class="header-botoes-li">Descartáveis</li>
-                        <hr>
-                        <li class="header-botoes-li">Instrumentos Odontológicos</li>
-                        <hr>
-                        <li class="header-botoes-li" id="melhores">Melhores Ofertas</li>
-                    </ul>
+                <div class="text-categorias">
+                    <p>Todas as Categorias</p>
                 </div>
             </div>
-        </div>
-    </header>
-    <!-- Fim Header -->
-
-
-
-    <!-- Início Footer -->
-    <footer>
-        <div class="container footer-conteudo">
-
-            <ul class="lista-contato">
-                <li>
-                   <img src="img/watsapp.png">
-                    <span>
-                        +55 99999999999
-                    </span>
-                </li>
-                <li>
-                        <img src="img/gmail.png">
-                    <span>
-                        email@.com
-                    </span>
-                </li>
-            </ul>
-
-            <div class="lista-redes">
-                <span>Redes Sociais</span>
-                <ul class="lista-redes-sociais">
-                    <li>
-                        <img src="img/facebook.png">
-                    </li>
-                    <li>
-                        <img src="img/instagram.png">
-                    </li>
-
+            <div class="header-baixo-botoes container">
+                <ul class="header-botoes">
+                    <li class="header-botoes-li">Equipamentos</li>
+                    <hr>
+                    <li class="header-botoes-li">Descartáveis</li>
+                    <hr>
+                    <li class="header-botoes-li">Instrumentos Odontológicos</li>
+                    <hr>
+                    <li class="header-botoes-li" id="melhores">Melhores Ofertas</li>
                 </ul>
-            
             </div>
         </div>
+    </div>
+</header>
+<!-- Fim Header -->
+<main>
+    <div class="carrinho container">
+        <div class="carrinho-produtos">
+            <h2>Meu carrinho</h2>
+            <ul class="carrinho-lista" id="carrinho-lista">
+            </ul>
+            <h2>Calcular o Frete</h2>
+            <div class="CEP" id="CEP">
+               <input type="text" id="txtBusca" placeholder="Digite seu CEP"/>
+                
+              </div>
+        </div>
+        <div class="carrinho-resumo">
+            <h2>Finalizar Compra</h2>
+            <div class="valores">
+                <h2>Total (15 intens)</h2> 
+                <h1>R$00,00</h1>
+                <hr>
 
-        <div class="footer-baixo">
-            Nome da loja 2023
-        </div> 
-    </footer>
-    <!-- Fim do Footer -->
+                <h2>Desconto</h2>
+               
+                <hr>
+            </div>
+            <h2>Valor Total</h2>
+            
+            <a href="#" id="fazer-pedido">FINALIZAR</a>
+            <a href="#" id="mais-produtos">Escolher mais produtos</a>
+        </div>
+    </div>
+</main>
+
+<!--Início do Footer-->
+<footer>
+<div class="container footer-conteudo">
+
+    <ul class="lista-contato">
+        <li>
+           <img src="img/watsapp.png">
+            <span>
+                +55 99999999999
+            </span>
+        </li>
+        <li>
+                <img src="img/gmail.png">
+            <span>
+                email@.com
+            </span>
+        </li>
+    </ul>
+
+    <div class="lista-redes">
+        <span>Redes Sociais</span>
+        <ul class="lista-redes-sociais">
+            <li>
+                <img src="img/facebook.png">
+            </li>
+            <li>
+                <img src="img/instagram.png">
+            </li>
+
+        </ul>
+    
+    </div>
+</div>
+
+<div class="footer-baixo">
+    Nome da loja 2023
+</div> 
+</footer>
+<!-- Fim do Footer -->
+<script src="carrinho.js"></script>
 </body>
 </html>

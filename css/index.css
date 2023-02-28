@@ -37,76 +37,32 @@ form input {
     background-color: rgb(104, 18, 18);
 }
 
-.header-baixo-conteudo {
-    display: flex;
-    align-items: center;
-    transition: 0.3s ease;
-    background-color: #A7262F;
-}
-
-.header-baixo-conteudo:hover {
-    cursor: pointer;
-    transform: scale(1.20);
-}
-
-.header-baixo {
-    display: flex;
-}
-
-.header-baixo-botoes {
-    display: flex;
-}
-
-.header-botoes {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    color: #fff;
-    flex-wrap: wrap;
-}
-
-.header-botoes-li {
-    padding: 0px 40px;
-    transition: 0.3s ease;
-}
-
-.header-botoes-li:hover {
-    cursor: pointer;
-    transform: scale(1.10);
-}
-
-.header-botoes hr {
-    height: 30px;
-}
-
-.text-categorias {
-    color: #fff;
-}
-
-.design-barras-categorias {
-    display: flex;
-    flex-direction: column;
-    width: 100px;
-    padding: 10px 14px;
-    transition: 0.3s ease;
-}
-
-.design-barras-categorias:hover {
-    cursor: pointer;
-    transform: scale(1.20);
-}
-
-.barras-brancas {
-    display: inline-block;
-    max-width: 50px;
-    padding: 4px;
-    margin: 5px;
-    background-color: #fff;
-}
-
 #lupa:hover {
     cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 8px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.dropdown span {
+    transition: all 0.5s ease;
+}
+
+.dropdown:hover span {
+    transform: rotate(90deg);
+}
+
+.dropdown-item {
+    position: absolute;
+    display: none;
+    list-style: none;
 }
 
 /* Fim Header */
