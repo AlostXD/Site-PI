@@ -49,20 +49,43 @@ form input {
     gap: 8px;
     font-size: 24px;
     color: #fff;
+    padding: 12px 16px;
 }
 
 .dropdown span {
     transition: all 0.5s ease;
 }
 
-.dropdown:hover span {
-    transform: rotate(90deg);
+
+.dropdown-categoria {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+}
+
+
+.dropdown-categoria p {
+    padding-right: 12px;
+}
+
+.dropdown-categoria {
+    cursor: pointer;
 }
 
 .dropdown-item {
     position: absolute;
     display: none;
     list-style: none;
+    margin-top: 65px;
+    padding: 12px 16px;
+    background-color: rgb(104, 18, 18);
+    gap: 20px;
+}
+
+.dropdown-item li {
+    color: #fff;
+    transition: all 0.5s ease;
 }
 
 /* Fim Header */
