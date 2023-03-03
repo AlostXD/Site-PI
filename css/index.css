@@ -44,6 +44,10 @@ form input {
     transition: all 0.3s ease;
 }
 
+.header-baixo-conteudo:hover {
+    transform: scale(1.1);
+}
+
 .design-barras-categorias {
     display: flex;
     flex-direction: column;
@@ -108,6 +112,12 @@ form input {
 .dropdown-item li {
     color: #fff;
     transition: all 0.5s ease;
+}
+
+.dropdown-item li:hover {
+    cursor: pointer;
+    color: rgb(172, 172, 172);
+    transform: scale(1.1);
 }
 
 /* Fim Header */
