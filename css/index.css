@@ -110,6 +110,15 @@ form input {
     transition: all 0.5s ease;
 }
 
+.dropdown-item a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.dropdown-item li:hover {
+    transform: scale(1.06);
+}
+
 /* Fim Header */
 
 /* Início Carrousel */
