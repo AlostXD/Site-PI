@@ -19,4 +19,7 @@ dropdownMenu.addEventListener('click', () => {
         dropdownArrow.style.rotate = "-0deg";
         dropstatus = false;
     }
-}) 
+})
+
+const qtdCarrinho = document.getElementById("numero-carrinho");
+qtdCarrinho.innerText = window.localStorage.getItem("qtdCarrinho");

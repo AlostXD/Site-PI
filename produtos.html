@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="description" content="Site destinado a produtos Odontológicos e suprimentos Médicos.">
+    <title>Site Odonto</title>
+    <link rel="shortcut icon" href="img/icons8-dente-64.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
@@ -15,46 +18,98 @@
     <header>
         <nav class="header-cima container">
             <ul>
-                <img src="img/icons8-dente-64.png" alt="logo">
+                <a href="index.html"><img src="img/icons8-dente-64.png" alt="logo"></a>
                 <form action="">
                     <input type="search" name="pesquisa" id="pesquisa" placeholder="Pesquise aqui um produto....">
                     <img src="img/icons8-pesquisar-50.png" alt="lupa" id="lupa">
                 </form>
                 <div class="botoes-cima">
+                    <span id="numero-carrinho"></span>
                     <a href="carrinho.html"><img src="/img/icons8-carrinho-de-compras-48.png" alt="carrinho"></a>
                 </div>
             </ul>
         </nav>
         <div class="header-baixo-bg">
-            <div class="header-baixo container">
+            <div class="dropdown container" id="dropdown">
                 <div class="header-baixo-conteudo">
                     <div class="design-barras-categorias">
                         <span class="barras-brancas"></span>
                         <span class="barras-brancas"></span>
                         <span class="barras-brancas"></span>
                     </div>
-                    <div class="text-categorias">
-                        <p>Todas as Categorias</p>
+                    <div class="dropdown-categoria" id="dropdown-categoria">
+                        <p>Categorias</p><span id="seta-dropdown">></span>
                     </div>
                 </div>
-                <div class="header-baixo-botoes container">
-                    <ul class="header-botoes">
-                        <li class="header-botoes-li">Equipamentos</li>
-                        <hr>
-                        <li class="header-botoes-li">Descartáveis</li>
-                        <hr>
-                        <li class="header-botoes-li">Instrumentos Odontológicos</li>
-                        <hr>
-                        <li class="header-botoes-li" id="melhores">Melhores Ofertas</li>
-                    </ul>
-                </div>
+                <ul class="dropdown-item" id="dropdown-item">
+                    <li><a href="produtos.html">Todos os Produtos</a></li>
+                    <hr>
+                    <li><a href="">Equipamentos</a></li>
+                    <hr>
+                    <li><a href="">Ofertas</a></li>
+                    <hr>
+                    <li><a href="">item</a></li>
+                    <hr>
+                    <li><a href="">item</a></li>
+                    <hr>
+                </ul>
             </div>
         </div>
     </header>
     <!-- Fim Header -->
+    <!-- Início Main -->
+    <main class="container">
+        <div class="banner-topo">
+            <img src="img/banner-product.png"
+                alt="imagem de um aparelho odontológico usado para fazer um raio-x da boca do paciente.">
+        </div>
 
+        <div class="carrossel-marcas">
+            <h1>Pesquisar por marca</h1>
+            <ul>
+                <li><img src="img/marca-carrossel.png" alt="logomarca"></li>
+                <li><img src="img/marca-carrossel.png" alt="logomarca"></li>
+                <li><img src="img/marca-carrossel.png" alt="logomarca"></li>
+                <li><img src="img/marca-carrossel.png" alt="logomarca"></li>
+                <li><img src="img/marca-carrossel.png" alt="logomarca"></li>
+            </ul>
+            <div class="carrossel-spans">
+                <span class="spans"></span>
+                <span class="spans"></span>
+                <span class="spans"></span>
+                <span class="spans"></span>
+                <span class="spans"></span>
+            </div>
 
+        </div>
 
+        <div>
+            <div class="ordenar-page">
+                <h2>Ordenar:</h2>
+
+                <select id="sorter" name="options" size="1">
+                    <option>Preço crescente
+                    <option>Preço decrescente
+                    <option>Ordem alfabética
+                    <option>Mais comprados
+                </select>
+            </div>
+
+            <ul class="lista-produtos" id="product-list">
+
+            </ul>
+        </div>
+
+        <div class="trocar-pagina">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+
+    </main>
+    <!-- Fim do Main -->
     <!-- Início Footer -->
     <footer>
         <div class="container footer-conteudo">
@@ -93,6 +148,9 @@
             Nome da loja 2023
         </div> 
     </footer>
+    <script src="produtos.js"></script>
+    <script src="index.js"></script>
+    <script src="carrinho.js"></script>
     <!-- Fim do Footer -->
 </body>
 </html>

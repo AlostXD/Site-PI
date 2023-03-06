@@ -76,5 +76,5 @@ montaCarrinho();
 
 /* ADICIONA AO CARRINHO */
 const qtdCarrinho = document.getElementById("numero-carrinho");
-//window.localStorage.setItem("qtdCarrinho", carrinho.length);
+window.localStorage.setItem("qtdCarrinho", carrinho.length);
 qtdCarrinho.innerText = carrinho.length;

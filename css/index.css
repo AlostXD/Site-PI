@@ -119,6 +119,20 @@ form input {
     transform: scale(1.06);
 }
 
+#numero-carrinho {
+    background-color: #A7262F;
+    border-radius: 200px;
+    position: absolute;
+    width: 25px;
+    text-align: center;
+    right: 0px;
+    color: #fff;
+}
+
+.botoes-cima {
+    position: relative;
+}
+
 /* Fim Header */
 
 /* Início Carrousel */
