@@ -23,6 +23,7 @@ form {
     justify-content: center;
     border: 1px solid grey;
     border-radius: 12px;
+
 }
 
 form input {
@@ -31,6 +32,7 @@ form input {
     border-right: 1px solid grey;
     background-color: rgb( 227, 227, 227);
     border-radius: 12px;
+    padding-left: 12px;
 }
 
 .header-baixo-bg {
