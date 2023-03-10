@@ -1,6 +1,4 @@
 
-/* Fim Header */
-
 .carrinho {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -107,6 +105,12 @@
 
 .valores hr {
     width: 200px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Fim do Footer */

@@ -4,19 +4,28 @@ const resumoQuantidade = document.getElementById("resumo-quantidade");
 let carrinho = JSON.parse(window.localStorage.getItem("carrinho"));
 
 var mensagem = `Olá, tenho interesse nos seguintes itens: `;
-carrinho.forEach(item => {
-    mensagem = mensagem + "%0a→ " + 1 + " unidade do produto " + item.nome;
-})
+
+
+let telefone = 3497743681
 
 btnFazerPedido.addEventListener("click", () => {
-    window.open("https://api.whatsapp.com/send?phone=3497743681&text=" + mensagem);
+    console.log(carrinho.length)
+    if (carrinho.length > 0) {
+        carrinho.forEach(item => {
+            mensagem = mensagem + "%0a→ " + 1 + " unidade do produto " + item.nome;
+        })
+        window.open(`https://api.whatsapp.com/send?phone=${telefone}&text=${mensagem}`);
+    }
+    else {
+        window.alert("Você Não tem itens no carrinho... Tente adicionar alguma coisa!")
+    }
 })
 
 
 
 
 
-function montaCarrinho(){
+function montaCarrinho() {
     let elementoValorCarrinho = document.getElementById("valor-total")
     let valorCarrinho = 0;
     resumoQuantidade.innerText = `Total (${carrinho.length} itens)`;
@@ -53,6 +62,9 @@ function removerdoCarrinho(array, id) {
     resumoQuantidade.innerText = `Total (${carrinho.length} itens)`;
     window.localStorage.setItem("carrinho", JSON.stringify(carrinho));
     montaCarrinho();
+    elementoValorCarrinho.innerText = "R$ " + valorCarrinho.toFixed(2)
+    window.localStorage.setItem("qtdCarrinho", carrinho.length);
+    qtdCarrinho.innerText = carrinho.length;
 }
 
 let dropdownMenu = document.getElementById("dropdown-categoria");
