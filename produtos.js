@@ -333,13 +333,13 @@ let produtos = [
 let carrinho = JSON.parse(window.localStorage.getItem("carrinho"));
 
 var ulProducts = document.getElementById("product-list")
-carrinho.forEach(produto=> {
+produtos.forEach(produto=> {
     var liProduct = document.createElement("li")
     liProduct.innerHTML = `<img class="img-produtos" src="img/mascaracomelastico.png" alt="">
-    <p>Mascara com Elastico Azul Claro com 50 unidades - SP Protection</p>
+    <p>${produto.nome}</p>
     <div class="content-produtos-preço">
-        <span class="preco-novo">R$ 19,90</span>
-        <span class="preco-anterior">R$ 29,90</span>
+        <span class="preco-novo">R$ ${produto.preco}</span>
+        <span class="preco-anterior">R$ ${produto.preco}</span>
         <input type="number" value=1 name="" id="">
         <button class="btn-adicionar" id="btn-adicionar" href="#">Adicionar</button>
     </div>
