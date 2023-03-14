@@ -30,7 +30,8 @@ let produtos = [
         Potência de luz: 1250 mW/cm².`,
         preco: 778,
         marca: "Schuster",
-        img: ""
+        img: "img/produtos/1.png",
+        id: 1
     },
     {
         nome: "Cavitador Cavflex 6000",
@@ -51,7 +52,8 @@ let produtos = [
         * Garantia: 1 ano.`,
         preco: 967,
         marca: "Dentflex",
-        img: ""
+        img: "img/produtos/2.png",
+        id: 2
     },
     {
         nome: "Ultrassom Portátil Soniclax BP Led",
@@ -90,7 +92,8 @@ let produtos = [
         • Registro ANVISA: 80354800006.`,
         preco: 3196,
         marca: "Schuster",
-        img: ""
+        img: "img/produtos/3.png",
+        id: 3
     },
     {
         nome: "Ultrassom Scaler Gold Line ",
@@ -106,7 +109,8 @@ let produtos = [
         * Garantia: 12 meses.`,
         preco: 1071,
         marca: "Essence Dental",
-        img: ""
+        img: "img/produtos/4.png",
+        id: 4
     },
     {
         nome: "Ultrassom Advance 1 Analógico",
@@ -131,7 +135,8 @@ let produtos = [
         * Dimensões da unidade principal aproximadas: 175 x 145 x 81mm.`,
         preco: 2382,
         marca: "Microdont",
-        img: ""
+        img: "img/produtos/5.png",
+        id: 5
     },
     {
         nome: "Caneta Ultrassônica Completa SW Surgery/SW Surgey II Led",
@@ -141,7 +146,8 @@ let produtos = [
         * Compatibilidade: SW Sugery e SW Sugery II Led."`,
         preco: 7.964,
         marca: "Schuster",
-        img: ""
+        img: "img/produtos/6.png",
+        id: 6
     },
     {
         nome: "Forno Magma 220-240V",
@@ -170,7 +176,8 @@ let produtos = [
         * Garantia: 3 anos contra defeito de fabricação."`,
         preco: 35.518,
         marca: "Renfert",
-        img: ""
+        img: "img/produtos/7.png",
+        id: 7
     },
     {
         nome: "Forno para Cerâmica Phoenix com Bomba de Vácuo",
@@ -216,7 +223,8 @@ let produtos = [
         - Garantia: 1 ano contra defeito de fábrica."`,
         preco: 22.500,
         marca: "OdontoMega",
-        img: ""
+        img: "img/produtos/8.png",
+        id: 8
     },
     {
         nome: "Raio-X Timex 70E Pantográfico Parede",
@@ -247,7 +255,8 @@ let produtos = [
         * Tipo de instalação: Fixo. "`,
         preco: 17.72090,
         marca: "Gnatus",
-        img: ""
+        img: "img/produtos/9.png",
+        id: 9
     },
     {
         nome: "Raio X Timex 70E Parede",
@@ -285,7 +294,8 @@ let produtos = [
         * Garantia: 12 meses. "`,
         preco: 14.19990,
         marca: "Gnatus",
-        img: ""
+        img: "img/produtos/10.png",
+        id: 10
     },
     {
         nome: "Raio X Max Parede",
@@ -311,7 +321,8 @@ let produtos = [
         * A montagem do equipamento deverá ser paga pelo comprador (cliente) e realizada por um técnico credenciado. A embalagem deverá permanecer fechada até a chegada do técnico, caso seja violada ocorrerá o cancelamento da garantia do produto."`,
         preco: 11.86090,
         marca: "D700",
-        img: ""
+        img: "img/produtos/11.png",
+        id: 11
     },
     {
         nome: "Raio X Spectro 70X Coluna Móvel",
@@ -326,7 +337,8 @@ let produtos = [
         * Garantia de 1 ano."`,
         preco: 12.23000,
         marca: "Dabi Atlante",
-        img: ""
+        img: "img/produtos/12.png",
+        id: 12
     },
 ]
 
@@ -335,16 +347,23 @@ let carrinho = JSON.parse(window.localStorage.getItem("carrinho"));
 var ulProducts = document.getElementById("product-list")
 produtos.forEach(produto=> {
     var liProduct = document.createElement("li")
-    liProduct.innerHTML = `<img class="img-produtos" src="img/mascaracomelastico.png" alt="">
+    liProduct.innerHTML = `
+    <a href="produtosindividual.html?id=${produto.id}"><img class="img-produtos" src="${produto.img}" alt=""></a>
     <p>${produto.nome}</p>
     <div class="content-produtos-preço">
         <span class="preco-novo">R$ ${produto.preco}</span>
         <span class="preco-anterior">R$ ${produto.preco}</span>
         <input type="number" value=1 name="" id="">
-        <button class="btn-adicionar" id="btn-adicionar" href="#">Adicionar</button>
+        <button onclick="addCarrinho(${produto.id})" class="btn-adicionar" id="btn-adicionar" href="#">Adicionar</button>
     </div>
     <img src="img/icone-coracao.png" alt="" class="icone-favorito">`
     ulProducts.appendChild(liProduct)
 })
 
-let adcCarrinho = document.getElementById("btn-adicionar")
+function addCarrinho(id) {
+    const produto = produtos.filter(produto => produto.id == id) [0]
+    carrinho.push(produto)
+    console.log(carrinho)
+    window.localStorage.setItem("carrinho", JSON.stringify(carrinho));
+}
+

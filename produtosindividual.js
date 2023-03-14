@@ -1,29 +1,4 @@
-let dropdownMenu = document.getElementById("dropdown-categoria");
-let dropitem = document.getElementById("dropdown-item");
-let dropdownArrow = document.getElementById("seta-dropdown")
-let dropstatus = false;
-
-dropdownMenu.addEventListener('click', () => {
-    console.log(dropdownMenu)
-    if (dropstatus == false) {
-        console.log("mostrando dropdown")
-        dropitem.style.display = "flex";
-        dropitem.style.flexDirection = "Column";
-        dropitem.style.color = "#000";
-        dropstatus = true;
-        dropdownArrow.style.rotate = "90deg";
-    }
-    else if (dropstatus == true) {
-        console.log("escondendo o texto")
-        dropitem.style.display = "none";
-        dropdownArrow.style.rotate = "-0deg";
-        dropstatus = false;
-    }
-})
-
-const qtdCarrinho = document.getElementById("numero-carrinho");
-qtdCarrinho.innerText = window.localStorage.getItem("qtdCarrinho");
-
+let id = window.location.search.substring(4);
 
 let produtos = [
     {
@@ -368,19 +343,35 @@ let produtos = [
     },
 ]
 
-const ofertas = document.getElementById("ofertas-inicio")
 
-for (let i = 1; i < 5; i++) {
-    let li = document.createElement("li");
-    li.innerHTML = `
-    <div class="imagem-ofertas-li">
-        <img src="img/mascaracomelastico.png" alt="produto">
+const produto = produtos.filter(produto => produto.id == id) [0]
+console.log(produto)
+
+
+var main = document.getElementById("main");
+main.innerHTML = `<div class="local">
+<a href="index.html" id="home">Home</a>
+</div>
+<div id="produto">
+<div class="produto" >
+    <img src="${produto.img}" alt="Imagem do pruduto">
+        <div>
+            <h2>${produto.nome}</h2>
+            <h6>${produto.marca}</h6>
+        <hr>
+        <div class="precos">
+            <h6 id="produto-preco">R$${produto.preco}</h6>
+        </div>
+        <div class="carrinho">
+            <!--<form action="#">-->
+                <input type="number" value="1">
+                <button type="submit" class="carrinho-btn">Adicionar ao carrinho</button>
+            <!--</form>--> 
+        </div>
     </div>
-    <p class="preco-ofertas">de R$20,00 por</p>
-    <p class="preco-principal-ofertas">R$10,00</p>
-    <a class="adicionar-carrinho" href="produtosindividual.html">Ver Mais</a>
-    <span class="desconto">50% Off</span>
-    `;
-    li.className = "container-ofertas-li";
-    ofertas.appendChild(li);
-}
+</div>
+<hr>
+<div class="descricao">
+    <p>${produto.descricao}</p>
+</div>
+</div>`
