@@ -78,6 +78,7 @@ form input {
     font-size: 24px;
     color: #fff;
     padding: 12px 16px;
+    z-index:99999;
 }
 
 .dropdown span {
@@ -193,6 +194,10 @@ img {
     align-items: center;
     gap: 32px;
     flex-wrap: wrap;
+}
+
+.container-ofertas ul h3 {
+    
 }
 
 .adicionar-carrinho {

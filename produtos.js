@@ -1,3 +1,27 @@
+let dropdownMenu = document.getElementById("dropdown-categoria");
+let dropitem = document.getElementById("dropdown-item");
+let dropdownArrow = document.getElementById("seta-dropdown")
+let dropstatus = false;
+
+dropdownMenu.addEventListener('click', () => {
+    if (dropstatus == false) {
+        dropitem.style.display = "flex";
+        dropitem.style.flexDirection = "Column";
+        dropitem.style.color = "#000";
+        dropstatus = true;
+        dropdownArrow.style.rotate = "90deg";
+    }
+    else if (dropstatus == true) {
+        dropitem.style.display = "none";
+        dropdownArrow.style.rotate = "-0deg";
+        dropstatus = false;
+    }
+})
+
+
+const qtdCarrinho = document.getElementById("numero-carrinho");
+qtdCarrinho.innerText = window.localStorage.getItem("qtdCarrinho");
+
 
 let produtos = [
     {
@@ -144,7 +168,7 @@ let produtos = [
         * Com iluminação Led para facilitar a visualização do campo de trabalho.
         * Possui capa em silicone autoclavável até 135°C.
         * Compatibilidade: SW Sugery e SW Sugery II Led."`,
-        preco: 7.964,
+        preco: 7964,
         marca: "Schuster",
         img: "img/produtos/6.png",
         id: 6
@@ -174,7 +198,7 @@ let produtos = [
         * Dimensões mufla do forno (LxAxP): 160x120x180mm.
         * Peso: 30Kg.
         * Garantia: 3 anos contra defeito de fabricação."`,
-        preco: 35.518,
+        preco: 35518,
         marca: "Renfert",
         img: "img/produtos/7.png",
         id: 7
@@ -221,7 +245,7 @@ let produtos = [
         - Peso líquido: 20Kg.
         - Peso total do pacote: 23,5Kg.
         - Garantia: 1 ano contra defeito de fábrica."`,
-        preco: 22.500,
+        preco: 2500,
         marca: "OdontoMega",
         img: "img/produtos/8.png",
         id: 8
@@ -253,7 +277,7 @@ let produtos = [
         * Dimensão do foco do tubo: 0,8 x 0,8mm. 
         * Fator de resfriamento: 1:30s. 
         * Tipo de instalação: Fixo. "`,
-        preco: 17.72090,
+        preco: 1790,
         marca: "Gnatus",
         img: "img/produtos/9.png",
         id: 9
@@ -292,7 +316,7 @@ let produtos = [
         * Peso: 9 kg.
         * Dimensões: 93 × 59 × 30 cm.
         * Garantia: 12 meses. "`,
-        preco: 14.19990,
+        preco: 14990,
         marca: "Gnatus",
         img: "img/produtos/10.png",
         id: 10
@@ -319,7 +343,7 @@ let produtos = [
         * Alimentação 127V + 4%.
         * Garantia de 1 ano.
         * A montagem do equipamento deverá ser paga pelo comprador (cliente) e realizada por um técnico credenciado. A embalagem deverá permanecer fechada até a chegada do técnico, caso seja violada ocorrerá o cancelamento da garantia do produto."`,
-        preco: 11.86090,
+        preco: 11860,
         marca: "D700",
         img: "img/produtos/11.png",
         id: 11
@@ -335,7 +359,7 @@ let produtos = [
         * O método de ensaio para a medição dos parâmetros de tensão de pico médio no tubo de raios-x (kVp), corrente média no tubo de raios-x (mA), tempo de aplicação de carga no tubo de raios-x (s) e produto corrente X tempo no tubo de raios-x (mAs).
         * Alimentação 110V ou 220V.
         * Garantia de 1 ano."`,
-        preco: 12.23000,
+        preco: 12230,
         marca: "Dabi Atlante",
         img: "img/produtos/12.png",
         id: 12
@@ -363,7 +387,8 @@ produtos.forEach(produto=> {
 function addCarrinho(id) {
     const produto = produtos.filter(produto => produto.id == id) [0]
     carrinho.push(produto)
-    console.log(carrinho)
     window.localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    window.localStorage.setItem("qtdCarrinho", carrinho.length);
+    qtdCarrinho.innerText = window.localStorage.getItem("qtdCarrinho")
 }
 

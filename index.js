@@ -4,9 +4,9 @@ let dropdownArrow = document.getElementById("seta-dropdown")
 let dropstatus = false;
 
 dropdownMenu.addEventListener('click', () => {
-    console.log(dropdownMenu)
+
     if (dropstatus == false) {
-        console.log("mostrando dropdown")
+
         dropitem.style.display = "flex";
         dropitem.style.flexDirection = "Column";
         dropitem.style.color = "#000";
@@ -14,7 +14,7 @@ dropdownMenu.addEventListener('click', () => {
         dropdownArrow.style.rotate = "90deg";
     }
     else if (dropstatus == true) {
-        console.log("escondendo o texto")
+
         dropitem.style.display = "none";
         dropdownArrow.style.rotate = "-0deg";
         dropstatus = false;
@@ -370,15 +370,17 @@ let produtos = [
 
 const ofertas = document.getElementById("ofertas-inicio")
 
-for (let i = 1; i < 5; i++) {
+for (var i = 1; i < 5; i++) {
+    console.log(produtos[i].preco)
     let li = document.createElement("li");
     li.innerHTML = `
     <div class="imagem-ofertas-li">
-        <img src="img/mascaracomelastico.png" alt="produto">
+        <img src="${(produtos[i].img)}" alt="produto">
     </div>
-    <p class="preco-ofertas">de R$20,00 por</p>
-    <p class="preco-principal-ofertas">R$10,00</p>
-    <a class="adicionar-carrinho" href="produtosindividual.html">Ver Mais</a>
+    <h3 class="produto-nome">${produtos[i].nome}</h3>
+    <p class="preco-ofertas">de R$ ${(produtos[i].preco*1.2).toFixed(2)} por</p>
+    <p class="preco-principal-ofertas">R$ ${produtos[i].preco}</p>
+    <a class="adicionar-carrinho" href="produtosindividual.html?id=${produtos[i].id}">Ver Mais</a>
     <span class="desconto">50% Off</span>
     `;
     li.className = "container-ofertas-li";

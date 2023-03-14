@@ -22,34 +22,38 @@ btnFazerPedido.addEventListener("click", () => {
 })
 
 
-
-
+let elementoValorCarrinho = document.getElementById("valor-total")
+let valorCarrinho = 0;
 
 function montaCarrinho() {
-    let elementoValorCarrinho = document.getElementById("valor-total")
-    let valorCarrinho = 0;
     resumoQuantidade.innerText = `Total (${carrinho.length} itens)`;
     carrinho.forEach(produto => {
         valorCarrinho = valorCarrinho + produto.preco;
         const liProduto = document.createElement("li");
         liProduto.className = "carrinho-item";
         liProduto.innerHTML = `
-        <img src=${produto.imagem} alt=${produto.nome}>
+        <img src=${produto.img} alt=${produto.nome}>
         <div class="carrinho-item-text">
             <h3>
                 ${produto.nome}
             </h3>
             <span id="preco-produto">R$ ${produto.preco}</span>
             <div>
-                <a href="#" id="carrinho-item-menos">-</a>
+                <a href="#" class="btn-quantidade" id="carrinho-item-menos">-</a>
                 <input type="text" value=1>
-                <a href="#" id="carrinho-item-mais">+</a>
+                <a href="#" class="btn-quantidade"  id="carrinho-item-mais">+</a>
             </div>
-            <a href="#" onclick="removerdoCarrinho(carrinho, ${produto.id})">Remover</a>
+            <a href="#" class="btn-remover-item" onclick="removerdoCarrinho(carrinho, ${produto.id})" ><img src="img/lixeira-carrinho.png"></a>
         </div>
     `
         ulCarrinho.appendChild(liProduto);
-        elementoValorCarrinho.innerText = "R$ " + valorCarrinho.toFixed(2)
+        if (carrinho.length == 0 ){
+            elementoValorCarrinho.innerText = "R$00.00"
+        }
+        else {
+
+            elementoValorCarrinho.innerText = "R$ " + valorCarrinho.toFixed(2)
+        }
     })
 
 }
@@ -66,6 +70,21 @@ function removerdoCarrinho(array, id) {
     window.localStorage.setItem("qtdCarrinho", carrinho.length);
     qtdCarrinho.innerText = carrinho.length;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 let dropdownMenu = document.getElementById("dropdown-categoria");
 let dropitem = document.getElementById("dropdown-item");

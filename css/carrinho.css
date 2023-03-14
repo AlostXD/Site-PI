@@ -1,11 +1,11 @@
-
 .carrinho {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
     margin-top: 20px;
 }
-.carrinho-lista{
+
+.carrinho-lista {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -15,6 +15,7 @@
     background-color: #7C0D12;
     border-radius: 12px;
     padding: 12px 16px;
+    position: relative;
 }
 
 .carrinho-lista img {
@@ -25,14 +26,14 @@
     display: flex;
 }
 
-.carrinho-item-text{
+.carrinho-item-text {
     padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.carrinho-item-text h3{
+.carrinho-item-text h3 {
     color: white;
 }
 
@@ -40,15 +41,15 @@
 #carrinho-item-menos,
 #carrinho-item-mais {
     padding: 3px 12px;
-    background-color: rgb(156, 156, 156);
+    background-color: #7C0D12;
 }
 
-.carrinho-item-text input{
+.carrinho-item-text input {
     width: 50px;
     text-align: center;
 }
 
-.carrinho-item span{
+.carrinho-item span {
     font-size: 24px;
 }
 
@@ -59,6 +60,21 @@
 .carrinho-produtos h2 {
     color: black;
     margin: 12px 16px;
+}
+
+.btn-remover-item {
+    max-width: 36px;
+    max-height: 36px;
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    
+}
+
+.btn-remover-item img {
+    max-width: 36px;
+    max-height: 36px;
+    
 }
 
 .carrinho-resumo {
@@ -74,11 +90,11 @@
     max-height: 600px;
 }
 
-.carrinho-resumo > div{
+.carrinho-resumo>div {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    
+
 }
 
 .carrinho-resumo a {
@@ -89,12 +105,19 @@
     text-align: center;
     max-width: 200px;
     align-items: center;
-   text-decoration: none;
+    text-decoration: none;
 }
 
 .carrinho-resumo h1 {
     text-align: end;
-    
+
+}
+
+.btn-quantidade {
+    background-color: #7C0D12;
+    text-decoration: none;
+    border-radius: 100%;
+    color: #fff;
 }
 
 .valores {
@@ -107,15 +130,17 @@
     width: 200px;
 }
 
+main {
+    min-height: 560px;
+}
+
 footer {
-    position: absolute;
-    bottom: 0;
     width: 100%;
 }
 
 /* Fim do Footer */
 @media screen and (max-width: 800px) {
-    .carrinho{
+    .carrinho {
         display: flex;
         flex-direction: column-reverse;
     }
