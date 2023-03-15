@@ -1,27 +1,4 @@
-let dropdownMenu = document.getElementById("dropdown-categoria");
-let dropitem = document.getElementById("dropdown-item");
-let dropdownArrow = document.getElementById("seta-dropdown")
-let dropstatus = false;
-
-dropdownMenu.addEventListener('click', () => {
-    if (dropstatus == false) {
-        dropitem.style.display = "flex";
-        dropitem.style.flexDirection = "Column";
-        dropitem.style.color = "#000";
-        dropstatus = true;
-        dropdownArrow.style.rotate = "90deg";
-    }
-    else if (dropstatus == true) {
-        dropitem.style.display = "none";
-        dropdownArrow.style.rotate = "-0deg";
-        dropstatus = false;
-    }
-})
-
-
-const qtdCarrinho = document.getElementById("numero-carrinho");
-qtdCarrinho.innerText = window.localStorage.getItem("qtdCarrinho");
-
+let id = window.location.search.substring(4);
 
 let produtos = [
     {
@@ -168,7 +145,7 @@ let produtos = [
         * Com iluminação Led para facilitar a visualização do campo de trabalho.
         * Possui capa em silicone autoclavável até 135°C.
         * Compatibilidade: SW Sugery e SW Sugery II Led."`,
-        preco: 7964,
+        preco: 7.964,
         marca: "Schuster",
         img: "img/produtos/6.png",
         id: 6
@@ -198,7 +175,7 @@ let produtos = [
         * Dimensões mufla do forno (LxAxP): 160x120x180mm.
         * Peso: 30Kg.
         * Garantia: 3 anos contra defeito de fabricação."`,
-        preco: 35518,
+        preco: 35.518,
         marca: "Renfert",
         img: "img/produtos/7.png",
         id: 7
@@ -245,7 +222,7 @@ let produtos = [
         - Peso líquido: 20Kg.
         - Peso total do pacote: 23,5Kg.
         - Garantia: 1 ano contra defeito de fábrica."`,
-        preco: 2500,
+        preco: 22.500,
         marca: "OdontoMega",
         img: "img/produtos/8.png",
         id: 8
@@ -277,7 +254,7 @@ let produtos = [
         * Dimensão do foco do tubo: 0,8 x 0,8mm. 
         * Fator de resfriamento: 1:30s. 
         * Tipo de instalação: Fixo. "`,
-        preco: 1790,
+        preco: 17.72090,
         marca: "Gnatus",
         img: "img/produtos/9.png",
         id: 9
@@ -316,7 +293,7 @@ let produtos = [
         * Peso: 9 kg.
         * Dimensões: 93 × 59 × 30 cm.
         * Garantia: 12 meses. "`,
-        preco: 14990,
+        preco: 14.19990,
         marca: "Gnatus",
         img: "img/produtos/10.png",
         id: 10
@@ -343,7 +320,7 @@ let produtos = [
         * Alimentação 127V + 4%.
         * Garantia de 1 ano.
         * A montagem do equipamento deverá ser paga pelo comprador (cliente) e realizada por um técnico credenciado. A embalagem deverá permanecer fechada até a chegada do técnico, caso seja violada ocorrerá o cancelamento da garantia do produto."`,
-        preco: 11860,
+        preco: 11.86090,
         marca: "D700",
         img: "img/produtos/11.png",
         id: 11
@@ -359,36 +336,42 @@ let produtos = [
         * O método de ensaio para a medição dos parâmetros de tensão de pico médio no tubo de raios-x (kVp), corrente média no tubo de raios-x (mA), tempo de aplicação de carga no tubo de raios-x (s) e produto corrente X tempo no tubo de raios-x (mAs).
         * Alimentação 110V ou 220V.
         * Garantia de 1 ano."`,
-        preco: 12230,
+        preco: 12.23000,
         marca: "Dabi Atlante",
         img: "img/produtos/12.png",
         id: 12
     },
 ]
 
-let carrinho = JSON.parse(window.localStorage.getItem("carrinho"));
 
-var ulProducts = document.getElementById("product-list")
-produtos.forEach(produto=> {
-    var liProduct = document.createElement("li")
-    liProduct.innerHTML = `
-    <a href="produtosindividual.html?id=${produto.id}"><img class="img-produtos" src="${produto.img}" alt=""></a>
-    <p>${produto.nome}</p>
-    <div class="content-produtos-preço">
-        <span class="preco-novo">R$ ${produto.preco}</span>
-        <span class="preco-anterior">R$ ${produto.preco}</span>
-        <input type="number" value=1 name="" id="">
-        <button onclick="addCarrinho(${produto.id})" class="btn-adicionar" id="btn-adicionar" href="#">Adicionar</button>
+const produto = produtos.filter(produto => produto.id == id) [0]
+console.log(produto)
+
+
+var main = document.getElementById("main");
+main.innerHTML = `<div class="local">
+<a href="index.html" id="home">Home</a>
+</div>
+<div id="produto">
+<div class="produto" >
+    <img src="${produto.img}" alt="Imagem do pruduto">
+        <div>
+            <h2>${produto.nome}</h2>
+            <h6>${produto.marca}</h6>
+        <hr>
+        <div class="precos">
+            <h6 id="produto-preco">R$${produto.preco}</h6>
+        </div>
+        <div class="carrinho">
+            <!--<form action="#">-->
+                <input type="number" value="1">
+                <button type="submit" class="carrinho-btn">Adicionar ao carrinho</button>
+            <!--</form>--> 
+        </div>
     </div>
-    <img src="img/icone-coracao.png" alt="" class="icone-favorito">`
-    ulProducts.appendChild(liProduct)
-})
-
-function addCarrinho(id) {
-    const produto = produtos.filter(produto => produto.id == id) [0]
-    carrinho.push(produto)
-    window.localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    window.localStorage.setItem("qtdCarrinho", carrinho.length);
-    qtdCarrinho.innerText = window.localStorage.getItem("qtdCarrinho")
-}
-
+</div>
+<hr>
+<div class="descricao">
+    <p>${produto.descricao}</p>
+</div>
+</div>`
