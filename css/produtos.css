@@ -15,6 +15,10 @@
     list-style: none;
 }
 
+.carrossel-marcas img {
+    max-width: 200px;
+}
+
 .carrossel-marcas {
     max-width: 1200px;
     margin-bottom: 30px;
