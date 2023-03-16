@@ -366,7 +366,7 @@ let produtos = [
     },
 ]
 
-let carrinho = JSON.parse(window.localStorage.getItem("carrinho"));
+let carrinho = JSON.parse(window.localStorage.getItem("carrinho")) || [];
 
 var ulProducts = document.getElementById("product-list")
 produtos.forEach(produto=> {
@@ -377,7 +377,6 @@ produtos.forEach(produto=> {
     <div class="content-produtos-preço">
         <span class="preco-novo">R$ ${produto.preco}</span>
         <span class="preco-anterior">R$ ${produto.preco}</span>
-        <input type="number" value=1 name="" id="">
         <button onclick="addCarrinho(${produto.id})" class="btn-adicionar" id="btn-adicionar" href="#">Adicionar</button>
     </div>
     <img src="img/icone-coracao.png" alt="" class="icone-favorito">`

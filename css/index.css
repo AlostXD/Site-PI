@@ -196,9 +196,6 @@ img {
     flex-wrap: wrap;
 }
 
-.container-ofertas ul h3 {
-    
-}
 
 .adicionar-carrinho {
     background-color: rgb(104, 18, 18);
@@ -368,10 +365,6 @@ footer {
         display: grid;
         grid-template-columns: 1fr;
     }
-
-    .header-baixo-bg {
-        display: none;
-    }
 }
 
 @media screen and (max-width: 400px) {
@@ -382,10 +375,6 @@ footer {
 
 @media screen and (max-width: 800px) {
     form {
-        display: none;
-    }
-
-    .header-baixo-botoes {
         display: none;
     }
 }

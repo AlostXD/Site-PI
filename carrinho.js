@@ -1,7 +1,7 @@
 const btnFazerPedido = document.getElementById("fazer-pedido");
 const ulCarrinho = document.getElementById("carrinho-lista");
 const resumoQuantidade = document.getElementById("resumo-quantidade");
-let carrinho = JSON.parse(window.localStorage.getItem("carrinho"));
+let carrinho = JSON.parse(window.localStorage.getItem("carrinho")) || [];
 
 var mensagem = `Olá, tenho interesse nos seguintes itens: `;
 
@@ -27,6 +27,7 @@ let valorCarrinho = 0;
 
 function montaCarrinho() {
     resumoQuantidade.innerText = `Total (${carrinho.length} itens)`;
+    valorCarrinho = 0;
     carrinho.forEach(produto => {
         valorCarrinho = valorCarrinho + produto.preco;
         const liProduto = document.createElement("li");
@@ -35,19 +36,14 @@ function montaCarrinho() {
         <img src=${produto.img} alt=${produto.nome}>
         <div class="carrinho-item-text">
             <h3>
-                ${produto.nome}
+            ${produto.nome}
             </h3>
             <span id="preco-produto">R$ ${produto.preco}</span>
-            <div>
-                <a href="#" class="btn-quantidade" id="carrinho-item-menos">-</a>
-                <input type="text" value=1>
-                <a href="#" class="btn-quantidade"  id="carrinho-item-mais">+</a>
-            </div>
             <a href="#" class="btn-remover-item" onclick="removerdoCarrinho(carrinho, ${produto.id})" ><img src="img/lixeira-carrinho.png"></a>
         </div>
     `
         ulCarrinho.appendChild(liProduto);
-        if (carrinho.length == 0 ){
+        if (carrinho.length == 0) {
             elementoValorCarrinho.innerText = "R$00.00"
         }
         else {
@@ -70,20 +66,6 @@ function removerdoCarrinho(array, id) {
     window.localStorage.setItem("qtdCarrinho", carrinho.length);
     qtdCarrinho.innerText = carrinho.length;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 let dropdownMenu = document.getElementById("dropdown-categoria");

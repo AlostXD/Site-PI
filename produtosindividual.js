@@ -1,5 +1,7 @@
 let id = window.location.search.substring(4);
 
+let carrinho = JSON.parse(window.localStorage.getItem("carrinho")) || [];
+
 let produtos = [
     {
         nome: "Fotopolimerizador e Clareador Emitter A Fit",
@@ -363,10 +365,7 @@ main.innerHTML = `<div class="local">
             <h6 id="produto-preco">R$${produto.preco}</h6>
         </div>
         <div class="carrinho">
-            <!--<form action="#">-->
-                <input type="number" value="1">
-                <button type="submit" class="carrinho-btn">Adicionar ao carrinho</button>
-            <!--</form>--> 
+            <button onclick="addCarrinho(${produto.id})" class="carrinho-btn" id="btn-adicionar" href="#">Adicionar</button>
         </div>
     </div>
 </div>
@@ -375,3 +374,15 @@ main.innerHTML = `<div class="local">
     <p>${produto.descricao}</p>
 </div>
 </div>`
+
+function addCarrinho(id) {
+    const produto = produtos.filter(produto => produto.id == id) [0]
+    carrinho.push(produto)
+    window.localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    window.localStorage.setItem("qtdCarrinho", carrinho.length);
+    qtdCarrinho.innerText = window.localStorage.getItem("qtdCarrinho")
+}
+
+
+const qtdCarrinho = document.getElementById("numero-carrinho");
+qtdCarrinho.innerText = window.localStorage.getItem("qtdCarrinho");
