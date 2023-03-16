@@ -376,7 +376,7 @@ produtos.forEach(produto=> {
     <p>${produto.nome}</p>
     <div class="content-produtos-preço">
         <span class="preco-novo">R$ ${produto.preco}</span>
-        <span class="preco-anterior">R$ ${produto.preco}</span>
+        <span class="preco-anterior">R$ ${(produto.preco*1.2).toFixed(2)}</span>
         <button onclick="addCarrinho(${produto.id})" class="btn-adicionar" id="btn-adicionar" href="#">Adicionar</button>
     </div>
     <img src="img/icone-coracao.png" alt="" class="icone-favorito">`

@@ -130,6 +130,26 @@ form input {
     transform: scale(1.1);
 }
 
+.botoes-cima {
+    position: relative;
+}
+
+#numero-carrinho {
+    display: flex;
+    font-size: 18px;
+    background-color: #8d1f27;
+    border-radius: 200px;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 /* Fim Header */
 
 /* Início Carrousel */
