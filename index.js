@@ -353,7 +353,7 @@ for (var i = 1; i < 5; i++) {
     let li = document.createElement("li");
     li.innerHTML = `
     <div class="imagem-ofertas-li">
-        <img src="${(produtos[i].img)}" alt="produto">
+    <a class="" href="produtosindividual.html?id=${produtos[i].id}"><img src="${(produtos[i].img)}" alt="produto"></a>
     </div>
     <h3 class="produto-nome">${produtos[i].nome}</h3>
     <p class="preco-ofertas">de R$ ${(produtos[i].preco*1.2).toFixed(2)} por</p>

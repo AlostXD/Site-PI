@@ -84,6 +84,8 @@
     gap: 32px;
     box-shadow: 5px 5px 5px grey;
     max-height: 600px;
+    margin-top: 60px;
+    border-radius: 12px;
 }
 
 .carrinho-resumo>div {
