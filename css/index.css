@@ -50,6 +50,10 @@ form input {
     transition: all 0.3s ease;
 }
 
+.header-baixo-conteudo:hover {
+    transform: scale(1.1);
+}
+
 .design-barras-categorias {
     display: flex;
     flex-direction: column;
@@ -115,27 +119,10 @@ form input {
     transition: all 0.5s ease;
 }
 
-.dropdown-item a {
-    text-decoration: none;
-    color: #fff;
-}
-
 .dropdown-item li:hover {
-    transform: scale(1.06);
-}
-
-#numero-carrinho {
-    background-color: #A7262F;
-    border-radius: 200px;
-    position: absolute;
-    width: 25px;
-    text-align: center;
-    right: 0px;
-    color: #fff;
-}
-
-.botoes-cima {
-    position: relative;
+    cursor: pointer;
+    color: rgb(172, 172, 172);
+    transform: scale(1.1);
 }
 
 /* Fim Header */
