@@ -39,7 +39,7 @@ function montaCarrinho() {
             ${produto.nome}
             </h3>
             <span id="preco-produto">R$ ${produto.preco}</span>
-            <a href="#" class="btn-remover-item" onclick="removerdoCarrinho(carrinho, ${produto.id})" ><img src="img/lixeira-carrinho.png"></a>
+            <a href="#" class="btn-remover-item" onclick="removerdoCarrinho(${produto.id})" ><img src="img/lixeira-carrinho.png"></a>
         </div>
     `
         ulCarrinho.appendChild(liProduto);
@@ -56,15 +56,16 @@ function montaCarrinho() {
 
 montaCarrinho();
 
-function removerdoCarrinho(array, id) {
-    carrinho = array.filter(produto => produto.id != id);
+function removerdoCarrinho(id) {
+    var index = carrinho.findIndex(produto => produto.id == id);
+    carrinho.splice(index, 1);
     ulCarrinho.innerHTML = "";
     resumoQuantidade.innerText = `Total (${carrinho.length} itens)`;
     window.localStorage.setItem("carrinho", JSON.stringify(carrinho));
     montaCarrinho();
     elementoValorCarrinho.innerText = "R$ " + valorCarrinho.toFixed(2)
     window.localStorage.setItem("qtdCarrinho", carrinho.length);
-    qtdCarrinho.innerText = carrinho.length;
+    qtdCarrinho.innerText = carrinho.length;   
 }
 
 
